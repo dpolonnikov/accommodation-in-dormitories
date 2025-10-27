@@ -1,0 +1,39 @@
+version: '3.1'
+
+volumes:
+  pg_dormitories:
+
+services:
+  dormitories_db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dormitories_db
+    volumes:
+      - pg_dormitories:/var/lib/postgresql
+    ports:
+      - "127.0.0.1:5433:5432"
+  app:
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dormitories_db
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://dormitories_db:5432/dormitories_db'
+      JAVA_OPTS: '-Xmx512m'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8081:80"
+    depends_on:
+      - dormitories_db
+
