@@ -10,15 +10,35 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "student_id", nullable = false)
     private User user;
-    private String faculty;
-    private String course;
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
+
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
+
+    @ManyToOne
+    @JoinColumn(name = "dormitory_id")
+    private Dormitory dormitory;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
+
+
+    private String first_name;
+    private String middle_name;
+    private String last_name;
 
 
 }
