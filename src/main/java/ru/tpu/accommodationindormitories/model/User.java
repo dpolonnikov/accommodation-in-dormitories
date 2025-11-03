@@ -15,9 +15,9 @@ public class User {
     private String username;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
-    private String passwordHash;
-    @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.STUDENT;
+    private String password;
+    private String role = UserRole.STUDENT.toString();
 
 }

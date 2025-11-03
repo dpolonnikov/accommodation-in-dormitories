@@ -1,6 +1,6 @@
 package ru.tpu.accommodationindormitories.enums;
 
-public enum UserRole {
-    ADMIN,
-    STUDENT,
+public enum Gender {
+    MALE,
+    FEMALE
 }
