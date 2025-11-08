@@ -39,6 +39,10 @@ public class Student {
     private String first_name;
     private String middle_name;
     private String last_name;
-
+    private String citizenship; //Гражданство
+    private String education; //На какой уровень образования поступает (бакалавр, мага и т.д)
+    private String admission_method; //Поступает через баллы егэ/олимпиаду/вступительные
+    private String[] hobby;
+    private String[] sport;
 
 }

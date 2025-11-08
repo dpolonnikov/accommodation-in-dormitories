@@ -15,6 +15,7 @@ public class Group {
     private Faculty faculty;
 
     private String group_number;
+    private String direction;
 
 
 }
